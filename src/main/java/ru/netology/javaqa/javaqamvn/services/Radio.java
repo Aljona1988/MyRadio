@@ -1,7 +1,13 @@
 package ru.netology.javaqa.javaqamvn.services;
 
 public class Radio {
-    public int currentStationNumber;
+
+    private int currentStationNumber;
+
+
+    public int getCurrentStationNumber() {
+        return currentStationNumber;
+    }
 
     public void setCurrentStationNumber(int newCurrentStationNumber) {
         if (newCurrentStationNumber < 0) {
@@ -11,47 +17,46 @@ public class Radio {
             return;
         }
         currentStationNumber = newCurrentStationNumber;
-
     }
 
-    public int nextStation() {
-        if (currentStationNumber >= 9) {
-            currentStationNumber = 0;
-        } else {
-            currentStationNumber++;
+        public int nextStation() {
+            if (currentStationNumber >= 9) {
+                currentStationNumber = 0;
+            } else {
+                currentStationNumber++;
+            }
+            return currentStationNumber;
         }
-        return currentStationNumber;
-    }
 
-    public int prevStation() {
-        if (currentStationNumber == 0) {
-            currentStationNumber = 9;
-        } else {
+       public int prevStation()  {
+            if (currentStationNumber == 0) {
+                currentStationNumber = 9;
+            } else {
 
-            currentStationNumber--;
+                currentStationNumber--;
+            }
+            return currentStationNumber;
         }
-        return currentStationNumber;
-    }
 
 
-    public int currentVolume;
+        public int currentVolume;
 
-    public int increaseVolume() {
-        if (currentVolume >= 10) {
-            currentVolume = currentVolume;
-        } else {
-            currentVolume++;
+        public int increaseVolume () {
+            if (currentVolume >= 10) {
+                currentVolume = currentVolume;
+            } else {
+                currentVolume++;
+            }
+            return currentVolume;
         }
-        return currentVolume;
-    }
 
-    public int decreaseVolume() {
-        if (currentVolume == 0) {
-            currentVolume = currentVolume;
-        } else {
-            currentVolume--;
+        public int decreaseVolume () {
+            if (currentVolume == 0) {
+                currentVolume = currentVolume;
+            } else {
+                currentVolume--;
+            }
+            return currentVolume;
         }
-        return currentVolume;
-    }
 
-}
+    }

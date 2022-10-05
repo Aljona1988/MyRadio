@@ -10,7 +10,7 @@ public class RadioTest {
         radio.setCurrentStationNumber(5);
 
         int expected = 5;
-        int actual = radio.currentStationNumber;
+        int actual = radio.getCurrentStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -21,7 +21,7 @@ public class RadioTest {
         radio.setCurrentStationNumber(-1);
 
         int expected = 0;
-        int actual = radio.currentStationNumber;
+        int actual = radio.getCurrentStationNumber();
 
         Assertions.assertEquals(expected, actual);
 
@@ -46,7 +46,7 @@ public class RadioTest {
         radio.setCurrentStationNumber(12);
 
         int expected = 0;
-        int actual = radio.currentStationNumber;
+        int actual = radio.getCurrentStationNumber();
 
         Assertions.assertEquals(expected, actual);
     }
@@ -54,7 +54,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseStationNumberGood() {
         Radio radio = new Radio();
-        radio.currentStationNumber = 8;
+        radio.setCurrentStationNumber(8);
 
         int expected = 9;
         int actual = radio.nextStation();
@@ -65,7 +65,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseStationNumberBad() {
         Radio radio = new Radio();
-        radio.currentStationNumber = 9;
+        radio.setCurrentStationNumber(9);;
 
         int expected = 0;
         int actual = radio.nextStation();
@@ -77,7 +77,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseStationNumberGood() {
         Radio radio = new Radio();
-        radio.currentStationNumber = 9;
+        radio.setCurrentStationNumber(9);
 
         int expected = 8;
         int actual = radio.prevStation();
@@ -87,7 +87,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseStationNumberBad() {
         Radio radio = new Radio();
-        radio.currentStationNumber = 0;
+        radio.setCurrentStationNumber(0);
 
         int expected = 9;
         int actual = radio.prevStation();
