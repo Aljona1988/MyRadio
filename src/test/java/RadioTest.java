@@ -31,14 +31,36 @@ public class RadioTest {
 
     public void shouldSetCurrentVolume() {
         Radio radio = new Radio();
-        radio.currentVolume = 6;
+        radio.setCurrentVolume(6);
         int expected = 6;
-        int actual = radio.currentVolume;
+        int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
     }
 
+
+    @Test
+
+    public void shouldSetCurrentVolumeAbove() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(11);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void shouldSetCurrentVolumeUnder() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-2);
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldNotSetFailedStation() {
@@ -65,7 +87,8 @@ public class RadioTest {
     @Test
     public void shouldIncreaseStationNumberBad() {
         Radio radio = new Radio();
-        radio.setCurrentStationNumber(9);;
+        radio.setCurrentStationNumber(9);
+        ;
 
         int expected = 0;
         int actual = radio.nextStation();
@@ -97,7 +120,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeGood() {
         Radio radio = new Radio();
-        radio.currentVolume = 3;
+        radio.setCurrentVolume(3);
 
         int expected = 4;
         int actual = radio.increaseVolume();
@@ -108,7 +131,7 @@ public class RadioTest {
     @Test
     public void shouldIncreaseVolumeBad() {
         Radio radio = new Radio();
-        radio.currentVolume = 10;
+        radio.setCurrentVolume(10);
 
         int expected = 10;
         int actual = radio.increaseVolume();
@@ -118,7 +141,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseVolumeGood() {
         Radio radio = new Radio();
-        radio.currentVolume = 3;
+        radio.setCurrentVolume(3);
 
         int expected = 2;
         int actual = radio.decreaseVolume();
@@ -129,7 +152,7 @@ public class RadioTest {
     @Test
     public void shouldDecreaseVolumeBad() {
         Radio radio = new Radio();
-        radio.currentVolume = 0;
+        radio.setCurrentVolume(0);
 
         int expected = 0;
         int actual = radio.decreaseVolume();
